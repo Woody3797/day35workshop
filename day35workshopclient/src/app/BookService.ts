@@ -13,7 +13,7 @@ export class BookService {
     getBooksByTitle(title: string): Observable<Book[]> {
         const params = new HttpParams().set('title', title)
         if (title.length == 0) {
-            return of([])
+            return of<Book[]>([])
         }
 
         return this.http.get<Book[]>(URL, {params: params})
