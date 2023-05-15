@@ -1,4 +1,4 @@
-package ibf2022.day35workshop.model;
+package ibf2022.csf.day35workshopserver.model;
 
 import org.bson.Document;
 
@@ -52,7 +52,11 @@ public class Book {
         Book book = new Book();
         book.setBookID(d.getInteger("bookID"));
         book.setAuthors(d.getString("authors"));
-        book.setAverageRating(d.getDouble("average_rating"));
+        try {
+            book.setAverageRating(d.getDouble("average_rating"));
+        } catch (ClassCastException e) {
+            book.setAverageRating(0);
+        }
         book.setTitle(d.getString("title"));
         return book;
     }

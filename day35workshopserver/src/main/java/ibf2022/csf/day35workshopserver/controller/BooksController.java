@@ -1,4 +1,4 @@
-package ibf2022.day35workshop.controller;
+package ibf2022.csf.day35workshopserver.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ibf2022.day35workshop.model.Book;
-import ibf2022.day35workshop.repository.BooksRepository;
+import ibf2022.csf.day35workshopserver.model.Book;
+import ibf2022.csf.day35workshopserver.repository.BooksRepository;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
@@ -31,9 +31,7 @@ public class BooksController {
     @ResponseBody
     public ResponseEntity<String> getBooksByTitle(@RequestParam String title) {
         List<Book> books = repository.getBooksByTitle(title);
-        List<JsonObject> resp = books.stream().map(
-            b -> b.toJson()
-        ).toList();
+        List<JsonObject> resp = books.stream().map(b -> b.toJson()).toList();
         JsonArray arr = Json.createArrayBuilder(resp).build();
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(arr.toString());
     }

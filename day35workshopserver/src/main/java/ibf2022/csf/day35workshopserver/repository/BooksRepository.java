@@ -1,4 +1,4 @@
-package ibf2022.day35workshop.repository;
+package ibf2022.csf.day35workshopserver.repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import ibf2022.day35workshop.model.Book;
+import ibf2022.csf.day35workshopserver.model.Book;
 
 @Repository
 public class BooksRepository {

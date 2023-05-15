@@ -10,7 +10,7 @@
 <div *ngFor="let b of books$ | async">
     <ul>
         <li>
-            {{ b.title }}
+            {{ b.title }} - {{ b.average_rating }}
         </li>
     </ul>
 </div>
