@@ -20,7 +20,7 @@ public class BooksRepository {
 
     public List<Book> getBooksByTitle(String title) {
         Query query = Query.query(Criteria.where("title").regex(title, "i"));
-        query.with(Sort.by(Sort.Direction.ASC, "title")).limit(50);
+        query.with(Sort.by(Sort.Direction.DESC, "average_rating")).limit(50);
 
         return template.find(query, Document.class, "books").stream().map(d -> Book.create(d)).toList();
     }

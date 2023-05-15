@@ -55,7 +55,7 @@ public class Book {
         try {
             book.setAverageRating(d.getDouble("average_rating"));
         } catch (ClassCastException e) {
-            book.setAverageRating(0);
+            book.setAverageRating(0.0);
         }
         book.setTitle(d.getString("title"));
         return book;

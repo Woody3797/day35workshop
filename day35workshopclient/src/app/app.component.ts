@@ -19,11 +19,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.form$ = this.fb.group({
-            title: this.fb.control("title", [Validators.required])
+            title: this.fb.control('', [Validators.required])
         })
         
         this.books$ = this.titleInput.pipe(
-            filter(title => title.trim().length > 0),
+            filter(title => title.trim().length >= 0),
             debounceTime(1000),
             mergeMap(title => this.bookService.getBooksByTitle(title)), // map returns observable of observable<Book>, mergeMap returns the Observable as it is
         )
