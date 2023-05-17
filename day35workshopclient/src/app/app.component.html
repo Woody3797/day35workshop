@@ -4,7 +4,6 @@
     <form [formGroup]="form$" (keyup)="keypressed(title.value)">
         <input type="text" size="40" formControlName="title" #title>
     </form>
-    
 </div>
 <br>
 <div *ngFor="let b of books$ | async">
